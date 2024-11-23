@@ -139,7 +139,8 @@
         left: 0vw !important;
     }
     .navigationBtns{
-        top: 70vh;
+        top: 67vh;
+        left: -8vw;
     }
 }
 
