@@ -27,7 +27,7 @@ export default function Header() {
     <header className={styles.headerTopLayer}>
         <div className={styles.headerInnerLayer}>
             <div>
-                <img src={vanceLogo} alt='vance company logo' className={styles.companyLogo}/>
+                <img src={vanceLogo} alt='vance company logo' className={styles.companyLogo} onClick={()=> navigate("/")}/>
             </div>
 
             <div className={styles.headerBtns}>
