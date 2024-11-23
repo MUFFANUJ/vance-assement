@@ -16,16 +16,16 @@ const ResponsiveAreaChart = ({ chartData }) => {
       return (
         <div
           style={{
-            backgroundColor: '#4f46e5',
-            color: 'white',
-            padding: '8px',
-            borderRadius: '4px',
+            backgroundColor: "#4f46e5",
+            color: "white",
+            padding: "8px",
+            borderRadius: "4px",
           }}
         >
           <p
             style={{
-              fontSize: '16px',
-              fontWeight: 'bold',
+              fontSize: "16px",
+              fontWeight: "bold",
               margin: 0,
             }}
           >
@@ -37,58 +37,76 @@ const ResponsiveAreaChart = ({ chartData }) => {
     return null;
   };
 
+  
+    const errorStyles = {
+      backgroundColor: "#ffe5e5",
+      color: "#b20000",
+      padding: "10px",
+      border: "1px solid #ffcccc",
+      borderRadius: "5px",
+      fontSize: "16px",
+      fontFamily: "Arial, sans-serif",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      height:"40vh"
+    };
+  
+    const iconStyles = {
+      fontSize: "18px",
+    }
+
   return (
     <div>
-      {windowSize > 450 ? (
-        <AreaChart
-          width={450}
-          height={300}
-          data={chartData}
-        >
-          <XAxis dataKey="monthStart" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="2 2" opacity="0.25" />
-          <Tooltip 
-            content={<CustomTooltip />} 
-            cursor={{ strokeDasharray: "4 4", strokeWidth: 2 }} 
-          />
-          <Area
-            type="monotone"
-            stackId="1"
-            dataKey="close"
-            stroke="#79E7A5"
-            fill="#79E7A5"
-            strokeWidth="2.5px"
-            strokeLinecap="round"
-            fillOpacity="0.37"
-            activeDot={{ r: 8, stroke: "#79E7A5" }}
-          />
-        </AreaChart>
+      {chartData.length ? (
+        windowSize > 450 ? (
+          <AreaChart width={450} height={300} data={chartData}>
+            <XAxis dataKey="monthStart" tickFormatter={(tick) => tick} />
+            <YAxis />
+            <CartesianGrid strokeDasharray="2 2" opacity="0.25" />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ strokeDasharray: "4 4", strokeWidth: 2 }}
+            />
+            <Area
+              type="monotone"
+              stackId="1"
+              dataKey="close"
+              stroke="#79E7A5"
+              fill="#79E7A5"
+              strokeWidth="2.5px"
+              strokeLinecap="round"
+              fillOpacity="0.37"
+              activeDot={{ r: 8, stroke: "#79E7A5" }}
+            />
+          </AreaChart>
+        ) : (
+          <AreaChart width={windowSize - 50} height={windowSize - 50} data={chartData}>
+            <XAxis dataKey="monthStart" />
+            <YAxis />
+            <CartesianGrid strokeDasharray="3 3" opacity="0.25" />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ strokeDasharray: "3 3", strokeWidth: 2 }}
+            />
+            <Area
+              type="monotone"
+              stackId="1"
+              dataKey="close"
+              stroke="#79E7A5"
+              fill="#79E7A5"
+              strokeWidth="2.5px"
+              strokeLinecap="round"
+              fillOpacity="0.37"
+              activeDot={{ r: 8, stroke: "#79E7A5" }}
+            />
+          </AreaChart>
+        )
       ) : (
-        <AreaChart
-          width={windowSize - 50}
-          height={windowSize - 50} 
-          data={chartData}
-        >
-          <XAxis dataKey="monthStart" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" opacity="0.25" />
-          <Tooltip 
-            content={<CustomTooltip />} 
-            cursor={{ strokeDasharray: "3 3", strokeWidth: 2 }}
-          />
-          <Area
-            type="monotone"
-            stackId="1"
-            dataKey="close"
-            stroke="#79E7A5"
-            fill="#79E7A5"
-            strokeWidth="2.5px"
-            strokeLinecap="round"
-            fillOpacity="0.37"
-            activeDot={{ r: 8, stroke: "#79E7A5" }}
-          />
-        </AreaChart>
+        <div style={errorStyles}>
+      <span style={iconStyles}>⚠️</span>
+      No chart data available at the moment. Please check back later.
+    </div>
       )}
     </div>
   );
