@@ -4,7 +4,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts"
 const ResponsiveAreaChart = ({ chartData }) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
-  // Track window size dynamically
+  
   useEffect(() => {
     const handleResize = () => setWindowSize(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -49,7 +49,7 @@ const ResponsiveAreaChart = ({ chartData }) => {
           <YAxis />
           <CartesianGrid strokeDasharray="2 2" opacity="0.25" />
           <Tooltip 
-            content={<CustomTooltip />} // Use CustomTooltip here
+            content={<CustomTooltip />} 
             cursor={{ strokeDasharray: "4 4", strokeWidth: 2 }} 
           />
           <Area
@@ -66,15 +66,15 @@ const ResponsiveAreaChart = ({ chartData }) => {
         </AreaChart>
       ) : (
         <AreaChart
-          width={windowSize - 50} // Adjusted for smaller size
-          height={windowSize - 50} // Adjusted for smaller size
+          width={windowSize - 50}
+          height={windowSize - 50} 
           data={chartData}
         >
           <XAxis dataKey="monthStart" />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" opacity="0.25" />
           <Tooltip 
-            content={<CustomTooltip />} // Pass CustomTooltip again
+            content={<CustomTooltip />} 
             cursor={{ strokeDasharray: "3 3", strokeWidth: 2 }}
           />
           <Area
