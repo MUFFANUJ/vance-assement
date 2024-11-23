@@ -1,0 +1,165 @@
+:root{
+  --text-def-colour:#D5D6DE;
+  --input-colour-background:#4F4F4F;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .modalContainer {
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 80%;
+    max-width: 350px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #333333;
+    transform: translateY(-20px); 
+    opacity: 0; 
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+  }
+
+  .modalUpperHead{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+
+  }
+  .modalCountryPrice{
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+  }
+  .modalCountryPrice :nth-child(2){
+    opacity: 0.45;
+  }
+  .modalUpperHead img{
+    width: 80px;
+    /* height: 70px; */
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .modalOverlay.open {
+    opacity: 1; 
+    pointer-events: all; 
+  }
+  
+  .modalContainer.open {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+  .modalClosebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modalTitle {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .modalBody {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+.modalForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.inputBoxModal{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.inputBoxModal label{
+  font-size: 14px;
+  color: var(--text-def-colour);
+  font-weight: 600;
+}
+
+.inputBoxModal div input{
+  width: 100%;
+  outline: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: var(--input-colour-background);
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+.modalBtns{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modalBtns button{
+  padding: 15px 0px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.modalBtns :nth-child(1){
+  background-color: #81EBAB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+}
+.modalBtns :nth-child(2){
+  background-color: transparent;
+  color: #FFFFFF;
+  opacity: 0.4;
+}
+
+.closeModalBtn{
+  background-color: transparent;
+  color: #FFFFFF;
+  opacity: 0.4;
+  padding: 15px 0px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+  

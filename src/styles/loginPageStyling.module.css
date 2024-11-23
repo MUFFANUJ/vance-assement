@@ -1,0 +1,231 @@
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.superDiv{
+    position: relative;
+    top: -35px;
+}
+.sirenParentDiv {
+    position: relative;
+    width: 37vw;
+    height: 35vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sirenRoundedDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; 
+    background: radial-gradient(50% 50% at 50% 50%, #4602D9 0%, #111111 100%);
+    width: 100%;
+    height: 100%;
+    opacity: 0.48; 
+  }
+  
+.sirenLogo{
+    width: 17vw;
+    opacity: 1;
+}
+
+.loginInfoBox{
+    position: relative;
+    top: -350px;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.accessText{
+    text-align: center;
+    width: 70%;
+    
+    .accessHeading{
+        font-size: 33px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .accessBody{
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 75%;
+        line-height: 22.4px;
+    }
+}
+
+.footerSignIn{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.singInBtn{
+   width: 80%;
+    border: none;
+    padding: 15px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #333333;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.96rem;
+    cursor: pointer;
+
+}
+.singInBtn img{
+    width: 25px;
+}
+.termsAndConditions{
+    font-size: 12.5px;
+    font-weight: 400;
+    width: 55%;
+    text-align: center;
+    margin: auto;
+    opacity: 0.35;
+    line-height: 16.5px;
+    
+}
+.spantermAndCondition{
+    font-size: 12.5px;
+    font-weight: bolder;
+    text-decoration: underline;
+    opacity: 1;
+    color: white;
+}
+
+
+
+/* media queries 8*/
+@media (max-width: 1024px) {
+    .sirenParentDiv {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .sirenLogo {
+        width: 25vw;
+    }
+
+    .loginInfoBox {
+        width: 50vw;
+        top: -360px;
+    }
+
+    .accessHeading {
+        font-size: 28px;
+    }
+
+    .accessBody {
+        font-size: 14px;
+    }
+
+    .singInBtn {
+        width: 90%;
+        font-size: 0.85rem;
+    }
+
+    .termsAndConditions {
+        font-size: 11px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .sirenParentDiv {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .sirenLogo {
+        width: 30vw;
+    }
+
+    .loginInfoBox {
+        width: 100%;
+        top: -400px;
+        gap: 15px;
+    }
+
+    .accessHeading {
+        font-size: 22px;
+    }
+
+    .accessBody {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .singInBtn {
+        width: 95%;
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    .termsAndConditions {
+        font-size: 10px;
+        width: 70%;
+    }
+}
+
+/* For extra-small devices */
+@media (max-width: 480px) {
+    .sirenParentDiv {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .sirenLogo {
+        width: 40vw;
+    }
+
+    .loginInfoBox {
+        width: 100%;
+        top: -224px;
+    }
+
+    .accessHeading {
+        font-size: 18px;
+    }
+
+    .accessBody {
+        font-size: 10px;
+        line-height: 18px;
+    }
+
+    .singInBtn {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+
+    .termsAndConditions {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 425px) {
+    .loginInfoBox{
+        top: -275px;
+    }
+}
+
+@media (max-width: 375px) {
+    .superDiv{
+        top: 0;
+    }
+}
