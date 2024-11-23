@@ -10,6 +10,7 @@ import AreaChartContainer from "../components/AreaChart.js";
 import axios from "axios";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import AlertCard from "../components/AlertCard.js";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +19,11 @@ export default function Dashboard() {
   const [selectedCountry, setSelectedCountry] = useState("GBP");
   const [currentPage, setCurrentPage] = useState(1);
 
+  const navigate = useNavigate();
   useEffect(() => {
+    if(localStorage.getItem('loggedIN') !== "true"){
+      navigate("/")
+    }
     getDataFromFirebase();
     getChartData(selectedCountry);
   }, []);
