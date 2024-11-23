@@ -11,6 +11,32 @@ const ResponsiveAreaChart = ({ chartData }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            backgroundColor: '#4f46e5',
+            color: 'white',
+            padding: '8px',
+            borderRadius: '4px',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '16px',
+              fontWeight: 'bold',
+              margin: 0,
+            }}
+          >
+            {`${payload[0].value.toFixed(2)}L`}
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div>
       {windowSize > 450 ? (
@@ -22,7 +48,10 @@ const ResponsiveAreaChart = ({ chartData }) => {
           <XAxis dataKey="monthStart" />
           <YAxis />
           <CartesianGrid strokeDasharray="2 2" opacity="0.25" />
-          <Tooltip cursor={{ strokeDasharray: "4 4", strokeWidth: 2, width: "20px" }} labelStyle={{ width: "4px" }} />
+          <Tooltip 
+            content={<CustomTooltip />} // Use CustomTooltip here
+            cursor={{ strokeDasharray: "4 4", strokeWidth: 2 }} 
+          />
           <Area
             type="monotone"
             stackId="1"
@@ -37,14 +66,17 @@ const ResponsiveAreaChart = ({ chartData }) => {
         </AreaChart>
       ) : (
         <AreaChart
-          width={windowSize-50} // Adjusted for smaller size
-          height={windowSize-50} // Adjusted for smaller size
+          width={windowSize - 50} // Adjusted for smaller size
+          height={windowSize - 50} // Adjusted for smaller size
           data={chartData}
         >
           <XAxis dataKey="monthStart" />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" opacity="0.25" />
-          <Tooltip cursor={{ strokeDasharray: "4 4", strokeWidth: 2, width: "20px" }} labelStyle={{ width: "4px" }} />
+          <Tooltip 
+            content={<CustomTooltip />} // Pass CustomTooltip again
+            cursor={{ strokeDasharray: "3 3", strokeWidth: 2 }}
+          />
           <Area
             type="monotone"
             stackId="1"
