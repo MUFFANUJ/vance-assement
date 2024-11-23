@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if(localStorage.getItem('loggedIN') !== "true"){
+    if(localStorage.getItem('loggedIn') !== "true"){
       navigate("/")
     }
     getDataFromFirebase();
