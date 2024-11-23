@@ -158,16 +158,16 @@
         gap: 15px;
     }
 
-    /* .mainBackgroundImage {
+    .mainBackgroundImage {
         width: 60vw;
         right: -50px;
         top: 60px;
-    } */
+    }
 
 
 
     .navigationBtns {
-        top: 43vh;
+        top: 40vh;
     }
 
     .navigationBtnsButton {
@@ -180,6 +180,12 @@
 
 
 
+@media (max-width: 940px) {
+    .navigationBtns {
+        top: 33vh;
+    }
+
+}
 
 
 
@@ -203,16 +209,16 @@
     }
 
     .mainBackgroundImage {
-        width: 70vw;
+        width: 65vw;
         right: 0px;
         top: 40px;
     }
 
 
     .navigationBtns {
-        /* gap: 10px;
-        top: 40vh;
-        left: -5vw; */
+        gap: 10px;
+        top: 20vh;
+        /* left: -5vw; */
     }
 
     .navigationBtnsButton {
@@ -234,8 +240,8 @@
         left: 14vw !important;
     }
     .navigationBtns {
-        /* top: 55vh;
-        left: 1vw; */
+        top: 11vh;
+        left: 1vw;
     }
 }
 
@@ -260,7 +266,7 @@
     }
 
     .mainBackgroundImage {
-        width: 80vw;
+        /* width: 80vw; */
         right: 0px;
         top: 20px;
     }
@@ -271,6 +277,11 @@
         right: 0;
     }
 
+    .navigationBtns {
+        gap: 10px;
+        top: 5vh;
+        /* left: -5vw; */
+    }
     .downloadBtns {
         flex-direction: column;
         gap: 10px;
@@ -278,7 +289,6 @@
 
 
     .navigationBtnsButton {
-        width: 100%;
         font-size: 0.9rem;
         padding: 5px 5px;
     }
@@ -288,6 +298,12 @@
     }
 }
 
+
+@media (max-width:330px) {
+    .navigationBtns {
+        top: 0vh;
+    }
+}
 
 
 
