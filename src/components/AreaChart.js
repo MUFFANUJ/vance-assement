@@ -107,7 +107,7 @@ const ResponsiveAreaChart = ({ chartData }) => {
       ) : (
         <div style={errorStyles}>
       <span style={iconStyles}>⚠️</span>
-      No chart data available at the moment. Please check back later.
+      No chart data available at the moment. (API failed due to CORS error).
     </div>
       )}
     </div>
