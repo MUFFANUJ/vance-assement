@@ -354,7 +354,9 @@ export default function Dashboard() {
               <AreaChartContainer chartData={chartData} />
 
               <div className={dashboardStyles.footerUpper}>
-                <div className={dashboardStyles.currentRate}>₹{Math.round(chartData[0]?.close * 100) / 100}</div>
+                {
+                  chartData.length ? ( <div className={dashboardStyles.currentRate}>₹{Math.round(chartData[0]?.close * 100) / 100}</div>) : ( <div className={dashboardStyles.currentRate}>No Data</div>)
+                }
                 <div>
                   <button
                     onClick={openModal}
