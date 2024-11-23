@@ -102,6 +102,8 @@ const Modal = ({ isOpen, onClose, children,selectedCountry }) => {
               name="title"
               value={title}
               onChange={(e)=> setTitle(e.target.value)}
+              placeholder="Send money home"
+              required
             />
             </div>
           </div>
@@ -116,6 +118,8 @@ const Modal = ({ isOpen, onClose, children,selectedCountry }) => {
               name="rateAlertValue"
               value={rateAlertValue}
               onChange={(e)=> setRateAlertValue(e.target.value)}
+              placeholder="₹ 1000"
+              required
             />
             </div>
           </div>
