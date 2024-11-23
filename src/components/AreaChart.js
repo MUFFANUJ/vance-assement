@@ -1,32 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
-const ResponsiveAreaChart = ({ fetchChartData }) => {
+const ResponsiveAreaChart = ({ chartData }) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [chartData, setChartData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
-  // Fetch data with retry logic
-  const loadData = async () => {
-    setLoading(true);
-    setError(false);
-    try {
-      const data = await fetchChartData(); // Call the fetch function passed as a prop
-      setChartData(data);
-    } catch (err) {
-      console.error("Error fetching chart data:", err);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  // Track window size dynamically
+  
   useEffect(() => {
     const handleResize = () => setWindowSize(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -59,77 +37,26 @@ const ResponsiveAreaChart = ({ fetchChartData }) => {
     return null;
   };
 
-  const errorStyles = {
-    // backgroundColor: "#ffe5e5",
-    color: "#b20000",
-    padding: "10px",
-    // border: "1px solid #ffcccc",
-    borderRadius: "5px",
-    fontSize: "16px",
-    fontFamily: "Arial, sans-serif",
-    display: "inline-flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "8px",
-    height: "40vh",
-  };
-
-  const iconStyles = {
-    fontSize: "18px",
-  };
-
-  const retryButtonStyles = {
-    padding: "10px 15px",
-    backgroundColor: "#4f46e5",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    marginTop: "10px",
-    fontSize: "14px",
-  };
-
-  const loaderStyles = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-  };
-
-  const loaderIconStyles = {
-    fontSize: "30px",
-    animation: "spin 1s linear infinite",
-  };
-
-  // Simple CSS for spinner animation
-  const spinnerCSS = `
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+  
+    const errorStyles = {
+      color: "#b20000",
+      padding: "10px",
+      borderRadius: "5px",
+      fontSize: "16px",
+      fontFamily: "Arial, sans-serif",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      height:"40vh",
+      display:"flex",
+      flexDirection:"column",
+      alignItems:"center",
+      justifyContent:"center"
+    };
+  
+    const iconStyles = {
+      fontSize: "18px",
     }
-  `;
-
-  if (loading) {
-    return (
-      <div style={loaderStyles}>
-        <style>{spinnerCSS}</style>
-        <div style={loaderIconStyles}>⏳</div> {/* You can replace it with a spinner image or icon */}
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div style={errorStyles}>
-        <span style={iconStyles}>⚠️</span>
-        Failed to load chart data. Please try again.
-        <button style={retryButtonStyles} onClick={loadData}>
-          Retry
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div>
@@ -179,9 +106,9 @@ const ResponsiveAreaChart = ({ fetchChartData }) => {
         )
       ) : (
         <div style={errorStyles}>
-          <span style={iconStyles}>⚠️</span>
-          No chart data available at the moment. Please check back later.
-        </div>
+      <span style={iconStyles}>⚠️</span>
+      No chart data available at the moment. Please check back later.
+    </div>
       )}
     </div>
   );
